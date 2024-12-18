@@ -1,0 +1,233 @@
+
+
+
+
+
+.circle {
+    opacity: 0.1;
+    width: 10%;
+    aspect-ratio: 1 / 1; /* Maintain a 1:1 aspect ratio */
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Adds blur effect */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Border to enhance the glass effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a more 3D look */
+  }
+
+  
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+  
+  .shake {
+    animation: shake 0.5s; /* Duration of the shaking animation */
+    animation-iteration-count: infinite; /* Repeat the animation */
+  }
+  
+
+
+
+
+.myclass {
+    position: absolute;
+    width: 15%;
+    margin: 10px;
+    left:20%;
+}
+
+.myclass2 {
+    position: absolute;
+    width: 15%;
+    margin: 15px;
+    left:40%;
+}
+
+.myclass3 {
+    position: absolute;
+    width: 15%;
+    margin: 10px;
+    left:60%;
+}
+
+
+
+
+.presents {
+    position: fixed;
+    width: 40%;
+    left: 2%;
+    bottom: -5%;
+
+}
+
+.fur-branch {
+    position: fixed;
+    width: 20%;
+    top: -8%;
+    right: -50px;
+    opacity: 0.7 ;
+}
+
+.tree {
+    position: fixed;
+    width: 25%;
+    bottom: 0;
+    right: 10%;
+
+}
+
+
+
+#video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure video covers the entire screen */
+    z-index: -1; /* Place behind all other content */
+}
+
+body {
+    background-image: url("bg.mp4");
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align the paragraph at the bottom */
+    background: #29a583; /* Dark background for contrast */
+    color: white;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: hidden;
+}
+
+#santa-gif {
+    left: -20vw; /* Start position off the left edge */
+    top: 10%;
+    position: fixed; /* Fixed to the viewport */
+    width: 10%; /* Adjust size of the GIF */
+    max-width: 500px;
+    margin-top: 20px;
+    transform: scaleX(-1); /* Flip horizontally */
+}
+
+#branch1, #branch2, #branch3, #branch4, #branch5, #branch6, #branch7 {
+    top: -5%;
+    position: absolute; /* Fixed to the viewport */
+    width: 20%; /* Adjust size of the GIF */
+    max-width: 20%;
+    margin-top: 20px;
+}
+
+
+#branch1 { left: 0%; }
+#branch2 { left: 14.3%; }
+#branch3 { left: 28.6%; }
+#branch4 { left: 42.9%; }
+#branch5 { left: 57.2%; }
+#branch6 { left: 71.5%; }
+#branch7 { left: 85.8%; }
+
+.header-balls {
+    position: absolute;
+    width: 3%;
+    z-index: -1;
+    height: auto;
+}
+
+.ball1 { top: 5%; left: 5%; }
+.ball2 { top: 7%; left: 25%; }
+.ball3 { top: 2%; left: 45%; width: 10%; }
+.ball4 { top: 4%; left: 65%; width: 8%; }
+.ball5 { top: 6%; left: 85%; }
+
+.snowflake {
+    position: absolute;
+    top: -10px; /* Start above the viewport */
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 10; /* Ensure snowflakes appear on top of other content */
+    width: 10px; /* Default width */
+    height: 10px; /* Default height */
+}
+
+
+
+.Countdown-title {
+    position: fixed;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    left:35%;
+    top: 40%;
+    width: 30%;
+    height: auto;
+}
+
+.Countdown-header {
+    margin-bottom: 20px;
+}
+
+.Countdown-display {
+    position: fixed;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.Countdown-time {
+    border-radius: 30px;
+    padding: 50px;
+    margin: 0 10px;
+    text-align: center;
+    width: 19%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    backdrop-filter: blur(10px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+}
+
+.Countdown-time-value {
+    font-size: 2.7em;
+    font-weight: bold;
+}
+
+.Countdown-time-label {
+    font-size: 1em;
+}
+
+.Countdown-display{
+    max-width: 40%;
+    overflow: hidden;
+}
+
+#box {
+    overflow: hidden;
+}

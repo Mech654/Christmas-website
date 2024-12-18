@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Text</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    
+
+    <style>
+
+
+
+
+    </style>
+</head>
+<body>
+    <video id="video-bg" autoplay muted loop>
+        <source src="bg.mp4" type="video/mp4">
+    </video>
+
+    <div>
+        <img id="santa-gif" src="https://th.bing.com/th/id/R.b38cd35700d55700f3e5908abbb8f49e?rik=PqpMPGGsaL%2b2jQ&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20121222014341%2faustinally%2fimages%2fe%2fe3%2fSanta_in_his_sleigh.gif&ehk=%2bYcOy%2fzIaAjhVvc420AeY27xAZPr8BFqFUA5enHAKZA%3d&risl=&pid=ImgRaw&r=0" alt="Santa in Sleigh" />
+        <img id="branch1" src="https://th.bing.com/th/id/R.0f2e945ff6a866bded947657dd0f4e19?rik=9vLa9MHgxegJXw&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f13%2fChristmas-Branches-PNG-Photos.png&ehk=7oPRdaVhrfZF0BDCeYAd%2bEMfBKK%2bBUExPUeBQdGViYI%3d&risl=1&pid=ImgRaw&r=0">
+        <img id="branch2" src="https://th.bing.com/th/id/R.0f2e945ff6a866bded947657dd0f4e19?rik=9vLa9MHgxegJXw&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f13%2fChristmas-Branches-PNG-Photos.png&ehk=7oPRdaVhrfZF0BDCeYAd%2bEMfBKK%2bBUExPUeBQdGViYI%3d&risl=1&pid=ImgRaw&r=0">
+        <img id="branch3" src="https://th.bing.com/th/id/R.0f2e945ff6a866bded947657dd0f4e19?rik=9vLa9MHgxegJXw&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f13%2fChristmas-Branches-PNG-Photos.png&ehk=7oPRdaVhrfZF0BDCeYAd%2bEMfBKK%2bBUExPUeBQdGViYI%3d&risl=1&pid=ImgRaw&r=0">
+        <img id="branch4" src="https://th.bing.com/th/id/R.0f2e945ff6a866bded947657dd0f4e19?rik=9vLa9MHgxegJXw&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f13%2fChristmas-Branches-PNG-Photos.png&ehk=7oPRdaVhrfZF0BDCeYAd%2bEMfBKK%2bBUExPUeBQdGViYI%3d&risl=1&pid=ImgRaw&r=0">
+        <img id="branch5" src="https://th.bing.com/th/id/R.0f2e945ff6a866bded947657dd0f4e19?rik=9vLa9MHgxegJXw&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f13%2fChristmas-Branches-PNG-Photos.png&ehk=7oPRdaVhrfZF0BDCeYAd%2bEMfBKK%2bBUExPUeBQdGViYI%3d&risl=1&pid=ImgRaw&r=0">
+        <img id="branch6" src="https://th.bing.com/th/id/R.0f2e945ff6a866bded947657dd0f4e19?rik=9vLa9MHgxegJXw&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f13%2fChristmas-Branches-PNG-Photos.png&ehk=7oPRdaVhrfZF0BDCeYAd%2bEMfBKK%2bBUExPUeBQdGViYI%3d&risl=1&pid=ImgRaw&r=0">
+    </div>
+
+    <div class="header-balls-div1">
+        <img class="header-balls ball1" src="https://pluspng.com/img-png/christmas-ball-png-download-christmas-ball-png-images-transparent-gallery-advertisement-1258.png">
+        <img class="header-balls ball2" src="https://th.bing.com/th/id/R.64cb742bc6c298fee828aec8aa5e2e41?rik=HcrZk3rI%2bOxshA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f5%2fPlain-Christmas-Ball-PNG.png&ehk=SQmVXtcwts%2fScjOue2QKO2eIWeGSSqbKhgDzukHZQ6Q%3d&risl=&pid=ImgRaw&r=0">
+        <img class="header-balls ball3" src="https://static.vecteezy.com/system/resources/previews/014/576/874/large_2x/metallic-christmas-ball-free-png.png">
+        <img class="header-balls ball4" src="https://static.vecteezy.com/system/resources/previews/014/576/862/large_2x/metallic-christmas-ball-free-png.png">
+        <img class="header-balls ball5" src="https://pluspng.com/img-png/christmas-ball-png-download-christmas-ball-png-images-transparent-gallery-advertisement-1258.png">
+    </div>
+
+
+    <div class="Countdown">
+        <div class="Countdown-header">
+            <h1 class="Countdown-title">Countdown to Christmas</h1>
+        </div>
+        <div class="Countdown-display">
+            <div class="Countdown-time" id="gog4">
+                <div id="box">
+                    <div class="Countdown-time-value" id="days">0</div>
+                </div>
+                <div class="Countdown-time-label">Days</div>
+            </div>
+            <div class="Countdown-time" id="gog3">
+                <div id="box">
+                    <div class="Countdown-time-value" id="hours">0</div>
+                </div>
+                <div class="Countdown-time-label">Hours</div>
+            </div>
+            <div class="Countdown-time" id="gog2">
+                <div id="box">
+                    <div class="Countdown-time-value" id="minutes">0</div>
+                </div>
+                <div class="Countdown-time-label">Minutes</div>
+            </div>
+            <div class="Countdown-time" id="gog1">
+                <div id="box">
+                    <div class="Countdown-time-value" id="seconds">0</div>
+                </div>
+                <div class="Countdown-time-label">Seconds</div>
+            </div>
+        </div>
+    </div>
+    <img src="https://clipground.com/images/birthday-gift-box-png-18.png" class="presents">
+    <img src="https://clipart.info/images/ccovers/1509729260hd-christmas-fir-tree-png-image.png" class="fur-branch">
+ 
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
