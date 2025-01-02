@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createSnowfall();
 });
 
-var countDownDate = new Date("Dec 24, 2024 18:00:00").getTime();
+var countDownDate = new Date("Dec 24, 2025 18:00:00").getTime();
 
 let old_seconds = 0, old_minutes = 0, old_hours = 0, old_days = 0;
 
@@ -131,9 +131,11 @@ var x = setInterval(function() {
 
 
 
-function changePage1(){
-    window.location.href = "https://www.google.com";
-}
+
+
+document.querySelector('.presents').addEventListener('click', function() {
+    window.location.href = 'Present.html';
+});
 
 
 

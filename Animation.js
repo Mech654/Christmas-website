@@ -1,16 +1,14 @@
 console.log("Animation.js loaded");
 
-let selectedGiftBox = null; // Global variable to store the chosen gift box
+let selectedGiftBox = null;
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM loaded");
 
-    // Target all gift boxes
     const giftBoxes = document.querySelectorAll('.gift-box');
 
-    // Function to handle the animation when a gift box is clicked
     function animateGiftBox(chosenBox) {
-        selectedGiftBox = chosenBox;  // Store the chosen box in the global variable
+        selectedGiftBox = chosenBox;
 
         const circle = document.getElementById('circle');
         circle.style.opacity = '100%';
@@ -25,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
             easing: 'easeInOutQuad'
         });
 
-        // Reduce opacity of all other boxes
         giftBoxes.forEach(box => {
             if (box !== chosenBox) {
                 anime({
@@ -38,25 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Attach click event to each gift box
+    // Event listeners to click gift boxes and key events
     giftBoxes.forEach(box => {
         box.addEventListener('click', () => animateGiftBox(box));
     });
 
-    // Circle progress script
     const circle = document.getElementById('circle');
     let progress = 0;
-    const increment = 5; // Percentage increment per 'F' key press
-    const maxProgress = 100; // Maximum progress value
-    const decrementRate = 0.1; // Rate at which progress decreases
+    const increment = 5;
+    const maxProgress = 100;
+    const decrementRate = 0.1;
     let isDecrementing = false;
-
-    // Flag to prevent continuous 'f' key holding
     let canShake = true;
 
-    document.addEventListener('keydown', (event) => {
+    function handleKeyDown(event) {
         if ((event.key === 'f' || event.key === 'F') && canShake) {
-            canShake = false;  // Disable further shaking until key is released
+            canShake = false;
             progress += increment;
             if (progress > maxProgress) {
                 progress = maxProgress;
@@ -64,10 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
             updateCircle();
             isDecrementing = false;
 
-            // Add shake animation to gift boxes using anime.js
             giftBoxes.forEach(box => {
-                // Ensure boxes are reset to their default positions before shaking
-                box.style.transition = 'none'; // Disable transition during shake
+                box.style.transition = 'none';
                 anime({
                     targets: box,
                     translateX: [
@@ -80,28 +72,33 @@ document.addEventListener("DOMContentLoaded", () => {
                     easing: 'easeInOutQuad'
                 });
 
-                // Reset transition for smooth movement after shake
                 setTimeout(() => {
-                    box.style.transition = ''; // Re-enable transition after shake
-                }, 450); // Timeout duration after the shake is done
+                    box.style.transition = '';
+                }, 450);
             });
         }
-    });
+    }
 
-    document.addEventListener('keyup', (event) => {
+    function handleKeyUp(event) {
         if (event.key === 'f' || event.key === 'F') {
-            canShake = true; // Re-enable shaking once the key is released
+            canShake = true;
             startDecrement();
         }
-    });
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
 
     function updateCircle() {
         circle.style.background = `conic-gradient(#28a745 0% ${progress}%, rgba(255, 255, 255, 0) ${progress}% 100%)`;
     }
 
-    function smoothDecrement() {
+    async function smoothDecrement() {
         if (progress > 0) {
-            if (progress > 95) openPresent();
+            if (progress > 95) {
+                openPresent();
+                await delay(9990000); // Simulate a long delay until present is opened
+            }
             progress -= decrementRate;
             if (progress < 0) {
                 progress = 0;
@@ -120,14 +117,48 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Start the decrement process initially
     startDecrement();
 });
 
-function openPresent() {
+function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+const items = [
+    'https://www.csgodatabase.com/images/skins/AK-47_B_the_Monster.png',
+    'https://th.bing.com/th/id/R.598b0c21ae7577e3911bdeaf215f6a10?rik=mYGFFMxcvtQW6w&riu=http%3a%2f%2fpngimg.com%2fuploads%2fbook%2fbook_PNG2116.png&ehk=t3rvVsFXFNhJQE%2bHTxNEsklPMuqozVePr1XVCsPPJ9w%3d&risl=&pid=ImgRaw&r=0'
+];
+
+async function openPresent() {
     console.log("Opening present...");
     if (selectedGiftBox) {
         selectedGiftBox.src = 'smoke-10073.gif';
+        selectedGiftBox.style.width = '30%';
+        selectedGiftBox.style.height = '30%';
+        selectedGiftBox.style.left = '35%';
         console.log("Selected gift box after:", selectedGiftBox);
+        const circle = document.getElementById('circle');
+        circle.style.opacity = '0%';
+        await delay(1400);
+        selectedGiftBox.src = items[Math.floor(Math.random() * items.length)];
+        console.log("Present opened");
+
+        // Disable further interactions after the present is opened
+        disableInteractions();
+        await delay(9999999000);
     }
+}
+
+function disableInteractions() {
+    // Remove event listeners from gift boxes
+    const giftBoxes = document.querySelectorAll('.gift-box');
+    giftBoxes.forEach(box => {
+        box.removeEventListener('click', () => animateGiftBox(box));
+    });
+
+    // Remove key event listeners
+    document.removeEventListener('keydown', handleKeyDown);
+    document.removeEventListener('keyup', handleKeyUp);
+
+    console.log("All interactions have been disabled.");
 }
